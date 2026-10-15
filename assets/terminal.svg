@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="444" viewBox="0 0 1200 444" role="img" aria-label="whoami - whoami / cat focus.txt / ls side-quests/ / echo $STATUS">
+<title>whoami - whoami / cat focus.txt / ls side-quests/ / echo $STATUS</title>
+<style>
+
+.win{fill:#0A0F1F;stroke:#1E2A4A;stroke-width:1.5}
+.bar{fill:#111833}
+.ttl{font:500 14px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;fill:#8A94B0}
+.t{font:500 19px ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;white-space:pre}
+.ps{fill:#30C5B5} .pt{fill:#F5B841}
+.c{fill:#E8ECF5}
+.caret rect{fill:#F5B841;animation:blink 1s steps(1,end) infinite}
+@keyframes blink{50%{opacity:0}}
+
+@keyframes e0{0%,6.219%{opacity:0}6.226%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e0{animation:e0 14472ms linear infinite}
+@keyframes e1{0%,7.255%{opacity:0}7.262%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e1{animation:e1 14472ms linear infinite}
+@keyframes e2{0%,7.684%{opacity:0}7.691%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e2{animation:e2 14472ms linear infinite}
+@keyframes e3{0%,8.112%{opacity:0}8.119%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e3{animation:e3 14472ms linear infinite}
+@keyframes e4{0%,8.541%{opacity:0}8.548%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e4{animation:e4 14472ms linear infinite}
+@keyframes e5{0%,8.969%{opacity:0}8.976%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e5{animation:e5 14472ms linear infinite}
+@keyframes e6{0%,9.397%{opacity:0}9.404%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e6{animation:e6 14472ms linear infinite}
+@keyframes e7{0%,12.452%{opacity:0;transform:translateY(6px)}14.386%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e7{animation:e7 14472ms ease-out infinite}
+@keyframes e8{0%,14.248%{opacity:0}14.255%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e8{animation:e8 14472ms linear infinite}
+@keyframes e9{0%,15.285%{opacity:0}15.292%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e9{animation:e9 14472ms linear infinite}
+@keyframes e10{0%,15.713%{opacity:0}15.720%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e10{animation:e10 14472ms linear infinite}
+@keyframes e11{0%,16.142%{opacity:0}16.148%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e11{animation:e11 14472ms linear infinite}
+@keyframes e12{0%,16.570%{opacity:0}16.577%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e12{animation:e12 14472ms linear infinite}
+@keyframes e13{0%,16.998%{opacity:0}17.005%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e13{animation:e13 14472ms linear infinite}
+@keyframes e14{0%,17.427%{opacity:0}17.434%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e14{animation:e14 14472ms linear infinite}
+@keyframes e15{0%,17.855%{opacity:0}17.862%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e15{animation:e15 14472ms linear infinite}
+@keyframes e16{0%,18.284%{opacity:0}18.290%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e16{animation:e16 14472ms linear infinite}
+@keyframes e17{0%,18.712%{opacity:0}18.719%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e17{animation:e17 14472ms linear infinite}
+@keyframes e18{0%,19.140%{opacity:0}19.147%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e18{animation:e18 14472ms linear infinite}
+@keyframes e19{0%,19.569%{opacity:0}19.576%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e19{animation:e19 14472ms linear infinite}
+@keyframes e20{0%,19.997%{opacity:0}20.004%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e20{animation:e20 14472ms linear infinite}
+@keyframes e21{0%,20.426%{opacity:0}20.433%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e21{animation:e21 14472ms linear infinite}
+@keyframes e22{0%,23.480%{opacity:0;transform:translateY(6px)}25.415%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e22{animation:e22 14472ms ease-out infinite}
+@keyframes e23{0%,25.276%{opacity:0;transform:translateY(6px)}27.211%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e23{animation:e23 14472ms ease-out infinite}
+@keyframes e24{0%,27.073%{opacity:0}27.080%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e24{animation:e24 14472ms linear infinite}
+@keyframes e25{0%,28.109%{opacity:0}28.116%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e25{animation:e25 14472ms linear infinite}
+@keyframes e26{0%,28.538%{opacity:0}28.545%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e26{animation:e26 14472ms linear infinite}
+@keyframes e27{0%,28.966%{opacity:0}28.973%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e27{animation:e27 14472ms linear infinite}
+@keyframes e28{0%,29.395%{opacity:0}29.402%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e28{animation:e28 14472ms linear infinite}
+@keyframes e29{0%,29.823%{opacity:0}29.830%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e29{animation:e29 14472ms linear infinite}
+@keyframes e30{0%,30.252%{opacity:0}30.258%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e30{animation:e30 14472ms linear infinite}
+@keyframes e31{0%,30.680%{opacity:0}30.687%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e31{animation:e31 14472ms linear infinite}
+@keyframes e32{0%,31.108%{opacity:0}31.115%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e32{animation:e32 14472ms linear infinite}
+@keyframes e33{0%,31.537%{opacity:0}31.544%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e33{animation:e33 14472ms linear infinite}
+@keyframes e34{0%,31.965%{opacity:0}31.972%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e34{animation:e34 14472ms linear infinite}
+@keyframes e35{0%,32.394%{opacity:0}32.400%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e35{animation:e35 14472ms linear infinite}
+@keyframes e36{0%,32.822%{opacity:0}32.829%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e36{animation:e36 14472ms linear infinite}
+@keyframes e37{0%,33.250%{opacity:0}33.257%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e37{animation:e37 14472ms linear infinite}
+@keyframes e38{0%,33.679%{opacity:0}33.686%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e38{animation:e38 14472ms linear infinite}
+@keyframes e39{0%,34.107%{opacity:0}34.114%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e39{animation:e39 14472ms linear infinite}
+@keyframes e40{0%,37.161%{opacity:0;transform:translateY(6px)}39.096%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e40{animation:e40 14472ms ease-out infinite}
+@keyframes e41{0%,38.958%{opacity:0}38.965%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e41{animation:e41 14472ms linear infinite}
+@keyframes e42{0%,39.994%{opacity:0}40.001%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e42{animation:e42 14472ms linear infinite}
+@keyframes e43{0%,40.423%{opacity:0}40.430%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e43{animation:e43 14472ms linear infinite}
+@keyframes e44{0%,40.851%{opacity:0}40.858%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e44{animation:e44 14472ms linear infinite}
+@keyframes e45{0%,41.280%{opacity:0}41.287%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e45{animation:e45 14472ms linear infinite}
+@keyframes e46{0%,41.708%{opacity:0}41.715%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e46{animation:e46 14472ms linear infinite}
+@keyframes e47{0%,42.137%{opacity:0}42.143%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e47{animation:e47 14472ms linear infinite}
+@keyframes e48{0%,42.565%{opacity:0}42.572%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e48{animation:e48 14472ms linear infinite}
+@keyframes e49{0%,42.993%{opacity:0}43.000%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e49{animation:e49 14472ms linear infinite}
+@keyframes e50{0%,43.422%{opacity:0}43.429%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e50{animation:e50 14472ms linear infinite}
+@keyframes e51{0%,43.850%{opacity:0}43.857%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e51{animation:e51 14472ms linear infinite}
+@keyframes e52{0%,44.279%{opacity:0}44.286%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e52{animation:e52 14472ms linear infinite}
+@keyframes e53{0%,44.707%{opacity:0}44.714%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e53{animation:e53 14472ms linear infinite}
+@keyframes e54{0%,47.761%{opacity:0;transform:translateY(6px)}49.696%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e54{animation:e54 14472ms ease-out infinite}
+@keyframes e55{0%,49.558%{opacity:0}49.565%,94.472%{opacity:1;transform:none}97.927%,100%{opacity:0}}.e55{animation:e55 14472ms linear infinite}
+@keyframes tc{0%{transform:translate(62.8px,104px)}6.219%{transform:translate(62.8px,104px)}7.255%{transform:translate(74.2px,104px)}7.684%{transform:translate(85.6px,104px)}8.112%{transform:translate(97.0px,104px)}8.541%{transform:translate(108.4px,104px)}8.969%{transform:translate(119.8px,104px)}9.397%{transform:translate(131.2px,104px)}14.248%{transform:translate(62.8px,176px)}15.285%{transform:translate(74.2px,176px)}15.713%{transform:translate(85.6px,176px)}16.142%{transform:translate(97.0px,176px)}16.570%{transform:translate(108.4px,176px)}16.998%{transform:translate(119.8px,176px)}17.427%{transform:translate(131.2px,176px)}17.855%{transform:translate(142.6px,176px)}18.284%{transform:translate(154.0px,176px)}18.712%{transform:translate(165.4px,176px)}19.140%{transform:translate(176.8px,176px)}19.569%{transform:translate(188.2px,176px)}19.997%{transform:translate(199.6px,176px)}20.426%{transform:translate(211.0px,176px)}27.073%{transform:translate(62.8px,284px)}28.109%{transform:translate(74.2px,284px)}28.538%{transform:translate(85.6px,284px)}28.966%{transform:translate(97.0px,284px)}29.395%{transform:translate(108.4px,284px)}29.823%{transform:translate(119.8px,284px)}30.252%{transform:translate(131.2px,284px)}30.680%{transform:translate(142.6px,284px)}31.108%{transform:translate(154.0px,284px)}31.537%{transform:translate(165.4px,284px)}31.965%{transform:translate(176.8px,284px)}32.394%{transform:translate(188.2px,284px)}32.822%{transform:translate(199.6px,284px)}33.250%{transform:translate(211.0px,284px)}33.679%{transform:translate(222.4px,284px)}34.107%{transform:translate(233.8px,284px)}38.958%{transform:translate(62.8px,356px)}39.994%{transform:translate(74.2px,356px)}40.423%{transform:translate(85.6px,356px)}40.851%{transform:translate(97.0px,356px)}41.280%{transform:translate(108.4px,356px)}41.708%{transform:translate(119.8px,356px)}42.137%{transform:translate(131.2px,356px)}42.565%{transform:translate(142.6px,356px)}42.993%{transform:translate(154.0px,356px)}43.422%{transform:translate(165.4px,356px)}43.850%{transform:translate(176.8px,356px)}44.279%{transform:translate(188.2px,356px)}44.707%{transform:translate(199.6px,356px)}49.558%{transform:translate(62.8px,428px)}97.927%{transform:translate(62.8px,104px)}}.tc{animation:tc 14472ms steps(1,end) infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}.tc{transform:translate(62.8px,428px)}}
+</style>
+<rect class="win" x="1" y="1" width="1198" height="442" rx="16"/>
+<path class="bar" d="M17 1.75 H1183 a15.25 15.25 0 0 1 15.25 15.25 V48 H1.75 V17 A15.25 15.25 0 0 1 17 1.75 Z"/>
+<line x1="1.5" y1="48" x2="1198.5" y2="48" stroke="#1E2A4A"/>
+<circle cx="28" cy="25" r="6.5" fill="#F0717B"/>
+<circle cx="50" cy="25" r="6.5" fill="#F5B841"/>
+<circle cx="72" cy="25" r="6.5" fill="#30C5B5"/>
+<text class="ttl" x="600.0" y="30" text-anchor="middle">alireza@account4all: ~</text>
+<text class="t e0" x="40" y="104"><tspan class="ps">$</tspan></text>
+<text class="t c e1" x="62.8" y="104">w</text>
+<text class="t c e2" x="74.2" y="104">h</text>
+<text class="t c e3" x="85.6" y="104">o</text>
+<text class="t c e4" x="97.0" y="104">a</text>
+<text class="t c e5" x="108.4" y="104">m</text>
+<text class="t c e6" x="119.8" y="104">i</text>
+<text class="t e7" x="62.8" y="140" xml:space="preserve"><tspan fill="#E8ECF5">alireza talezadeh</tspan><tspan fill="#8A94B0"> - building </tspan><tspan fill="#F5B841">account4all.ir</tspan></text>
+<text class="t e8" x="40" y="176"><tspan class="ps">$</tspan></text>
+<text class="t c e9" x="62.8" y="176">c</text>
+<text class="t c e10" x="74.2" y="176">a</text>
+<text class="t c e11" x="85.6" y="176">t</text>
+<text class="t c e12" x="97.0" y="176"> </text>
+<text class="t c e13" x="108.4" y="176">f</text>
+<text class="t c e14" x="119.8" y="176">o</text>
+<text class="t c e15" x="131.2" y="176">c</text>
+<text class="t c e16" x="142.6" y="176">u</text>
+<text class="t c e17" x="154.0" y="176">s</text>
+<text class="t c e18" x="165.4" y="176">.</text>
+<text class="t c e19" x="176.8" y="176">t</text>
+<text class="t c e20" x="188.2" y="176">x</text>
+<text class="t c e21" x="199.6" y="176">t</text>
+<text class="t e22" x="62.8" y="212" xml:space="preserve"><tspan fill="#E8ECF5">woocommerce themes &amp; plugins</tspan><tspan fill="#8A94B0">  ·  </tspan><tspan fill="#E8ECF5">persian / rtl ux</tspan><tspan fill="#8A94B0">  ·  </tspan><tspan fill="#E8ECF5">checkout &amp; order flows</tspan></text>
+<text class="t e23" x="62.8" y="248" xml:space="preserve"><tspan fill="#E8ECF5">sms + email automation</tspan><tspan fill="#8A94B0">  ·  </tspan><tspan fill="#E8ECF5">seo &amp; structured data</tspan><tspan fill="#8A94B0">  ·  </tspan><tspan fill="#E8ECF5">web performance</tspan></text>
+<text class="t e24" x="40" y="284"><tspan class="ps">$</tspan></text>
+<text class="t c e25" x="62.8" y="284">l</text>
+<text class="t c e26" x="74.2" y="284">s</text>
+<text class="t c e27" x="85.6" y="284"> </text>
+<text class="t c e28" x="97.0" y="284">s</text>
+<text class="t c e29" x="108.4" y="284">i</text>
+<text class="t c e30" x="119.8" y="284">d</text>
+<text class="t c e31" x="131.2" y="284">e</text>
+<text class="t c e32" x="142.6" y="284">-</text>
+<text class="t c e33" x="154.0" y="284">q</text>
+<text class="t c e34" x="165.4" y="284">u</text>
+<text class="t c e35" x="176.8" y="284">e</text>
+<text class="t c e36" x="188.2" y="284">s</text>
+<text class="t c e37" x="199.6" y="284">t</text>
+<text class="t c e38" x="211.0" y="284">s</text>
+<text class="t c e39" x="222.4" y="284">/</text>
+<text class="t e40" x="62.8" y="320" xml:space="preserve"><tspan fill="#30C5B5">mql5-expert-advisors/</tspan><tspan fill="#8A94B0">   </tspan><tspan fill="#30C5B5">crypto-research/</tspan><tspan fill="#8A94B0">   </tspan><tspan fill="#30C5B5">3d-interiors/</tspan></text>
+<text class="t e41" x="40" y="356"><tspan class="ps">$</tspan></text>
+<text class="t c e42" x="62.8" y="356">e</text>
+<text class="t c e43" x="74.2" y="356">c</text>
+<text class="t c e44" x="85.6" y="356">h</text>
+<text class="t c e45" x="97.0" y="356">o</text>
+<text class="t c e46" x="108.4" y="356"> </text>
+<text class="t c e47" x="119.8" y="356">$</text>
+<text class="t c e48" x="131.2" y="356">S</text>
+<text class="t c e49" x="142.6" y="356">T</text>
+<text class="t c e50" x="154.0" y="356">A</text>
+<text class="t c e51" x="165.4" y="356">T</text>
+<text class="t c e52" x="176.8" y="356">U</text>
+<text class="t c e53" x="188.2" y="356">S</text>
+<text class="t e54" x="62.8" y="392" xml:space="preserve"><tspan fill="#30C5B5">● </tspan><tspan fill="#E8ECF5">shipping, one verified release at a time</tspan></text>
+<text class="t e55" x="40" y="428"><tspan class="ps">$</tspan></text>
+<g class="tc caret"><rect x="1" y="-17" width="10" height="22" rx="1.5"/></g>
+</svg>
