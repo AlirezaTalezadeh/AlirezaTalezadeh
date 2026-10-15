@@ -4,8 +4,7 @@
 
 <p align="center">
   <a href="https://account4all.ir"><img src="https://img.shields.io/badge/account4all.ir-0A0F1F?style=for-the-badge&logo=woocommerce&logoColor=30C5B5&labelColor=0A0F1F" alt="account4all.ir" /></a>
-  <img src="https://img.shields.io/badge/based_in-Iran-0A0F1F?style=for-the-badge&labelColor=0A0F1F&color=F5B841" alt="Based in Iran" />
-  <img src="https://img.shields.io/badge/فارسی_·_English-0A0F1F?style=for-the-badge&labelColor=0A0F1F&color=30C5B5" alt="Persian and English" />
+  <img src="https://img.shields.io/badge/speaks-Persian_·_English-0A0F1F?style=for-the-badge&labelColor=0A0F1F&color=1E2A4A" alt="Persian and English" />
 </p>
 
 <br />
