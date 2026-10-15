@@ -13,7 +13,6 @@ GitHub keeps <style> and SMIL inside SVG images, so CSS keyframes and
 """
 import base64
 import io
-import math
 import os
 import re
 from xml.sax.saxutils import escape
@@ -33,28 +32,17 @@ TAG_FA = ("در حال ساختن اکانت فور آل؛ ", "داستانی ک
 
 DESK_EYEBROW = "LIVE FROM THE FOUNDER'S DESK"
 DESK_TITLE = "A day at account4all.ir"
-FEED = [  # (icon, tint, title, subtitle, time) - illustrative events
-    ("cart", "blue", "New order", "ChatGPT Plus · 1 month", "now"),
-    ("bolt", "amber", "Delivered", "Spotify Premium · in minutes", "1m"),
-    ("heart", "red", "New 5-star review", "“Fast and friendly, thank you!”", "3m"),
-    ("mug12", "green", "Coffee break", "Cup number three today", "5m"),
-]
-
-DO_TITLE = "What I do"
-DO_SUB = "Running an online store, every single day"
-DO = [  # (icon, title, line)
-    ("cart", "E-commerce, daily", "Orders, delivery and support"),
-    ("chart", "Growth", "SEO, marketing, getting found"),
-    ("heart", "Customers first", "Fast answers and fair prices"),
-    ("bolt", "Fast delivery", "Premium accounts, delivered quickly"),
-    ("card", "Smooth payments", "Checkout and wallet that just work"),
-    ("mug12", "Founder & CEO", "Vision, team and lots of coffee"),
+FEED = [  # (icon, tint, title, status)
+    ("spark", "blue", "Making the site cooler", "in progress"),
+    ("wrench", "green", "Solving product problems", "solved"),
+    ("team", "amber", "Building the team", "growing"),
+    ("mug12", "red", "Drinking coffee", "always"),
 ]
 FOOTER = "made with coffee and love"
 
 # ---------------------------------------------------------------- TOKENS (Account4All kit v1.0.0)
 C = {
-    "surface": "#ffffff", "border": "#e5e5e9", "border2": "#d0d0d8",
+    "bg": "#f5f5f5", "surface": "#ffffff", "border": "#e5e5e9", "border2": "#d0d0d8",
     "text": "#23242b", "text2": "#61616e", "muted": "#73737f",
     "primary": "#1f1eff", "blue500": "#5a59fe", "blue50": "#f0f0ff", "blue100": "#e3e3ff", "blue200": "#d2d2ff",
     "cyan": "#00c8ff", "logo2": "#0d6dff",
@@ -124,73 +112,45 @@ SPR = {
         "..rrr..",
         "...r...",
     ],
-    "cart": [
-        "kk..........",
-        ".k..........",
-        ".kBBBBBBBBBk",
-        ".kBBBBBBBBk.",
-        "..kBBBBBBBk.",
-        "..kBBBBBBk..",
-        "...kkkkkkk..",
-        "...k........",
-        "...kkkkkkkk.",
-        "....kk...kk.",
-        "....kk...kk.",
+    "spark": [
+        "....Y.......",
+        "....Y.......",
+        "...YyY......",
+        "..YyyyY.....",
+        "YYyyyyyYY...",
+        "..YyyyY.....",
+        "...YyY......",
+        "....Y....B..",
+        "....Y...BBB.",
+        ".........B..",
+        "............",
         "............",
     ],
-    "chart": [
-        "........nnnn",
-        "..........nn",
-        ".........n.n",
-        "........n...",
-        "...n...n....",
-        "..n.n.n.....",
-        ".n...n...BB.",
-        "n........BB.",
-        "......BB.BB.",
-        "...BB.BB.BB.",
-        "...BB.BB.BB.",
-        "kkkkkkkkkkkk",
-    ],
-    "heart": [
-        "............",
-        "..rrr..rrr..",
-        ".rRRrrrrrrr.",
-        "rRRrrrrrrrrr",
-        "rRrrrrrrrrrr",
-        "rrrrrrrrrrrr",
-        ".rrrrrrrrrr.",
-        "..rrrrrrrr..",
-        "...rrrrrr...",
-        "....rrrr....",
-        ".....rr.....",
+    "wrench": [
+        ".......GG...",
+        "......GG..G.",
+        "......GG.GG.",
+        "......GGGGG.",
+        ".....GGGGG..",
+        "....GGG.....",
+        "...GGG......",
+        "..GGG.......",
+        ".GGG........",
+        "GGG.........",
+        "GG..........",
         "............",
     ],
-    "bolt": [
-        ".......YYYY.",
-        "......YyyY..",
-        ".....YyyY...",
-        "....YyyY....",
-        "...YyyyyyyY.",
-        "..YYYYyyyY..",
-        "......YyY...",
-        ".....YyY....",
-        "....YyY.....",
-        "...YY.......",
-        "..Y.........",
+    "team": [
         "............",
-    ],
-    "card": [
-        "............",
-        "............",
-        "kkkkkkkkkkkk",
-        "kBBBBBBBBBBk",
-        "kkkkkkkkkkkk",
-        "kBBBBBBBBBBk",
-        "kByyBBBBBBBk",
-        "kByyBBBBBBBk",
-        "kBBBBBwwwwBk",
-        "kkkkkkkkkkkk",
+        "...hh....hh.",
+        "..hhhh..hhhh",
+        "..ssss..ssss",
+        "..ssss..ssss",
+        "...ss....ss.",
+        ".BBBBBBnnnnn",
+        ".BBBBBBnnnnn",
+        ".BBBBBBnnnnn",
+        ".BBBBBBnnnnn",
         "............",
         "............",
     ],
@@ -210,6 +170,7 @@ SPR = {
     ],
 }
 PAL["K"] = PAL["k"]
+PAL["G"] = "#73737f"
 
 
 def sprite(key, P, x=0, y=0):
@@ -301,20 +262,15 @@ SPARKLE_CSS = (".tw{transform-box:fill-box;transform-origin:center;animation:tw 
                "@keyframes tw{0%,100%{transform:scale(.45) rotate(0);opacity:.35}50%{transform:scale(1) rotate(45deg);opacity:1}}")
 
 
-def lemniscate(cx, cy, a, sy, n=160):
-    pts = []
-    for k in range(n):
-        t = 2 * math.pi * k / n
-        d = 1 + math.sin(t) ** 2
-        pts.append((cx + a * math.cos(t) / d, cy + sy * a * math.sin(t) * math.cos(t) / d))
-    return "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts) + " Z"
-
-
 # ---------------------------------------------------------------- HERO
 def hero():
     W, H = 1200, 400
-    cx, cy = 905, 214
-    inf = lemniscate(cx, cy, 225, 1.55)
+    bx, by, bw, bh, bar = 640, 40, 520, 320, 38       # browser window
+    vy, vh = by + bar, bh - bar                        # its viewport
+    shot = open(os.path.join(HERE, "site-preview.jpg"), "rb").read()
+    sw, sh_ = 780, 1645                                # site-preview.jpg pixels
+    ih = sh_ * bw / sw                                 # screenshot height at window width
+    travel = ih - vh
     css = f"""
 .lockup{{transform-box:fill-box;transform-origin:center;animation:pop .8s {POP} .1s both}}
 @keyframes pop{{from{{transform:scale(.6);opacity:0}}}}
@@ -333,29 +289,31 @@ def hero():
 .en,.fa{{animation:swap 12s {EXPO} infinite both}}
 .en{{animation-delay:1.1s}} .fa{{animation-delay:-4.9s}}
 @keyframes swap{{0%{{transform:translateY(34px);opacity:0}}6%,44%{{transform:none;opacity:1}}50%,100%{{transform:translateY(-34px);opacity:0}}}}
-.track{{fill:none;stroke:{C['blue50']};stroke-width:24;stroke-linejoin:round}}
-.flow{{fill:none;stroke:url(#lgf);stroke-width:5;stroke-linecap:round;stroke-dasharray:70 50;animation:flow 6s linear infinite}}
-@keyframes flow{{to{{stroke-dashoffset:-1200}}}}
-.inf{{animation:fade 1s ease-out .6s both}}
+.win{{animation:win 1s {EXPO} .5s both}}
+@keyframes win{{from{{transform:translateY(30px);opacity:0}}}}
+.scroll{{animation:scroll 18s {EASE} 1.5s infinite}}
+@keyframes scroll{{0%,12%{{transform:none}}40%,50%{{transform:translateY(-{travel * .45:.0f}px)}}78%,88%{{transform:translateY(-{travel:.0f}px)}}100%{{transform:none}}}}
+.url{{font-size:13px;fill:{C['text2']}}}
+.lock{{fill:{C['green']}}}
 @media (prefers-reduced-motion: reduce){{.fa{{opacity:0}}}}
 {SPARKLE_CSS}
 """
     body = f"""{card(W, H)}
 <defs>
-<linearGradient id="lgf" gradientUnits="userSpaceOnUse" x1="{cx - 230}" y1="0" x2="{cx + 230}" y2="0"><stop offset="0" stop-color="{C['cyan']}"/><stop offset=".5" stop-color="{C['primary']}"/><stop offset="1" stop-color="{C['blue500']}"/></linearGradient>
 <linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <clipPath id="lc">{logo()}</clipPath>
-<clipPath id="nm"><rect x="40" y="170" width="660" height="84"/></clipPath>
-<clipPath id="tg"><rect x="40" y="272" width="660" height="42"/></clipPath>
+<clipPath id="nm"><rect x="40" y="170" width="580" height="84"/></clipPath>
+<clipPath id="tg"><rect x="40" y="272" width="580" height="42"/></clipPath>
 <clipPath id="cardc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="28"/></clipPath>
+<clipPath id="vp"><path d="M{bx} {vy} H{bx + bw} V{by + bh - 16} a16 16 0 0 1 -16 16 H{bx + 16} a16 16 0 0 1 -16 -16 Z"/></clipPath>
 <radialGradient id="blob"><stop offset="0" stop-color="{C['blue100']}" stop-opacity=".9"/><stop offset="1" stop-color="{C['blue50']}" stop-opacity="0"/></radialGradient>
 <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="{C['border2']}" opacity=".6"/></pattern>
-<linearGradient id="dfade" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="dfade" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/></linearGradient>
 </defs>
 <g clip-path="url(#cardc)">
-<rect x="620" y="0" width="580" height="{H}" fill="url(#dots)"/>
-<rect x="620" y="0" width="580" height="{H}" fill="url(#dfade)"/>
-<circle cx="{cx}" cy="{cy}" r="300" fill="url(#blob)"/>
+<rect x="560" y="0" width="640" height="{H}" fill="url(#dots)"/>
+<rect x="560" y="0" width="640" height="{H}" fill="url(#dfade)"/>
+<circle cx="{bx + bw / 2}" cy="{by + bh / 2}" r="320" fill="url(#blob)"/>
 </g>
 <g transform="translate(64 44) scale(1.12)"><g class="lockup">{logo()}
 <g clip-path="url(#lc)"><rect class="shine" x="-20" y="-10" width="30" height="80" fill="url(#sw)" transform="skewX(-20)"/></g></g></g>
@@ -368,18 +326,21 @@ def hero():
 <text class="tag en" x="64" y="301"><tspan fill="{C['text']}" font-weight="800">{T(TAG_EN[0])}</tspan><tspan fill="{C['text2']}">{T(TAG_EN[1])}</tspan></text>
 <text class="tag fa" x="64" y="301" direction="rtl" text-anchor="end"><tspan fill="{C['text']}">{T(TAG_FA[0])}</tspan><tspan fill="{C['primary']}" font-weight="800">{T(TAG_FA[1])}</tspan></text>
 </g>
-<g class="inf"><path class="track" d="{inf}"/><path class="flow" pathLength="1200" d="{inf}"/></g>
-{sparkle(1120, 66, 16, C['sun'], 0)}
-{sparkle(682, 336, 11, C['primary'], .9)}
-{sparkle(1136, 340, 9, C['blue500'], 1.7)}
-{sparkle(600, 96, 10, C['sun'], 1.3)}
+<g class="win">
+<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="16" fill="{C['surface']}" stroke="{C['border']}" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="{bx + 22}" cy="{by + 19}" r="5.5" fill="#ff5f57"/><circle cx="{bx + 40}" cy="{by + 19}" r="5.5" fill="#febc2e"/><circle cx="{bx + 58}" cy="{by + 19}" r="5.5" fill="#28c840"/>
+<rect x="{bx + bw / 2 - 110}" y="{by + 7}" width="220" height="24" rx="12" fill="{C['bg']}"/>
+<path class="lock" d="M{bx + bw / 2 - 52} {by + 17} h8 v7 h-8 Z M{bx + bw / 2 - 50.5} {by + 17} v-2.5 a2.5 2.5 0 0 1 5 0 v2.5" stroke="{C['green']}" stroke-width="1.4" fill-rule="evenodd"/>
+<text class="url" x="{bx + bw / 2 + 6}" y="{by + 23.5}" text-anchor="middle">{T(SITE)}</text>
+<g clip-path="url(#vp)"><image class="scroll" x="{bx}" y="{vy}" width="{bw}" height="{ih:.1f}" preserveAspectRatio="none"
+ href="data:image/jpeg;base64,{base64.b64encode(shot).decode()}"/></g>
+<line x1="{bx}" y1="{vy}" x2="{bx + bw}" y2="{vy}" stroke="{C['border']}" stroke-width="1.5"/>
+</g>
+{sparkle(1168, 40, 16, C['sun'], 0)}
+{sparkle(612, 340, 11, C['primary'], .9)}
+{sparkle(1172, 372, 9, C['blue500'], 1.7)}
+{sparkle(590, 70, 9, C['sun'], 1.3)}
 """
-    # travellers on the never-ending loop
-    for k, icon in enumerate(("cart", "heart", "mug12", "bolt")):
-        w, h = sprite_size(icon, 3)
-        body += (f'<g><circle r="27" fill="{C["surface"]}" stroke="{C["border"]}" stroke-width="1.5" filter="url(#sh)"/>'
-                 f'{sprite(icon, 3, -w / 2, -h / 2)}'
-                 f'<animateMotion dur="16s" repeatCount="indefinite" begin="{-k * 4}s" path="{inf}"/></g>\n')
     write("hero.svg", svg(W, H, f"{NAME_FIRST} {NAME_LAST}, {ROLE} of {SITE}. {''.join(TAG_EN)}", body, css))
 
 
@@ -409,7 +370,7 @@ def desk():
 .h{{font-weight:800;font-size:28px;fill:{C['text']}}}
 .ft{{font-weight:800;font-size:16px;fill:{C['text']}}}
 .fs{{font-size:14px;fill:{C['text2']}}}
-.fm{{font-size:13px;fill:{C['muted']}}}
+.pill{{font-weight:800;font-size:13px}}
 .toast{{animation:toast 14s {EXPO} infinite both}}
 @keyframes toast{{0%{{transform:translateX(46px);opacity:0}}5%,84%{{transform:none;opacity:1}}90%,100%{{transform:none;opacity:0}}}}
 .ring{{transform-box:fill-box;transform-origin:center;animation:ring 14s ease-out infinite both}}
@@ -468,68 +429,30 @@ def desk():
     b.append(f'<circle class="dot" cx="{fx + 5}" cy="66" r="5" fill="{C["green"]}"/>'
              f'<text class="eyebrow" x="{fx + 18}" y="71">{T(DESK_EYEBROW)}</text>'
              f'<text class="h" x="{fx}" y="112">{T(DESK_TITLE)}</text>')
-    for k, (icon, tint, title, sub, t) in enumerate(FEED):
+    for k, (icon, tint, title, status) in enumerate(FEED):
         y = 140 + k * 70
         soft, strong = tints[tint]
         delay = 0.6 + k * 1.3
         iw, ih = sprite_size(icon, 3)
+        pw = len(status) * 7.4 + 24
         b.append(
             f'<g class="toast" style="animation-delay:{delay}s">'
             f'<rect x="{fx}" y="{y}" width="550" height="58" rx="16" fill="{C["surface"]}" stroke="{C["border"]}" stroke-width="1.5" filter="url(#sh)"/>'
             f'<rect class="ring" x="{fx + 10}" y="{y + 9}" width="40" height="40" rx="12" fill="none" stroke="{strong}" stroke-width="2" style="animation-delay:{delay}s"/>'
             f'<rect x="{fx + 10}" y="{y + 9}" width="40" height="40" rx="12" fill="{soft}"/>'
             f'{sprite(icon, 3, fx + 30 - iw / 2, y + 29 - ih / 2)}'
-            f'<text class="ft" x="{fx + 64}" y="{y + 25}">{T(title)}</text>'
-            f'<text class="fs" x="{fx + 64}" y="{y + 45}">{T(sub)}</text>'
-            f'<text class="fm" x="{fx + 532}" y="{y + 25}" text-anchor="end">{T(t)}</text></g>')
+            f'<text class="ft" x="{fx + 64}" y="{y + 35}">{T(title)}</text>'
+            f'<rect x="{fx + 534 - pw}" y="{y + 16}" width="{pw:.0f}" height="26" rx="13" fill="{soft}"/>'
+            f'<text class="pill" x="{fx + 534 - pw / 2}" y="{y + 34}" text-anchor="middle" fill="{strong}">{T(status)}</text></g>')
     b.append(sparkle(1150, 58, 12, C["sun"], .4))
-    write("desk.svg", svg(W, H, f"{DESK_TITLE}: new orders, fast delivery, happy customers and coffee",
+    write("desk.svg", svg(W, H, f"{DESK_TITLE}: " + ", ".join(f"{t} ({st})" for _, _, t, st in FEED),
                           "\n".join(b), css))
-
-
-# ---------------------------------------------------------------- WHAT I DO
-def what():
-    cols, cw_, chh, gap, px, top = 3, 360, 116, 20, 40, 116
-    rows = math.ceil(len(DO) / cols)
-    W = 1200
-    H = top + rows * chh + (rows - 1) * gap + 40
-    css = f"""
-.h{{font-weight:800;font-size:28px;fill:{C['text']}}}
-.sub{{font-size:16px;fill:{C['text2']}}}
-.ct{{font-weight:800;font-size:18px;fill:{C['text']}}}
-.cs{{font-size:14px;fill:{C['text2']}}}
-.in{{animation:in .8s {EXPO} both}}
-@keyframes in{{from{{transform:translateY(18px);opacity:0}}}}
-.hop{{animation:hop 7.2s steps(1,end) infinite}}
-@keyframes hop{{0%,8%,100%{{transform:none}}2%{{transform:translateY(-5px)}}4%{{transform:translateY(-10px)}}6%{{transform:translateY(-4px)}}}}
-.edge{{animation:edge 7.2s ease-in-out infinite}}
-@keyframes edge{{0%,12%,100%{{stroke:{C['border']}}}4%{{stroke:{C['primary']}}}}}
-{SPARKLE_CSS}
-"""
-    b = [card(W, H),
-         f'<text class="h" x="{px}" y="66">{T(DO_TITLE)}</text>'
-         f'<text class="sub" x="{px}" y="94">{T(DO_SUB)}</text>',
-         sparkle(px + 152, 52, 10, C["sun"], 0)]
-    for k, (icon, title, line) in enumerate(DO):
-        r, c = divmod(k, cols)
-        x, y = px + c * (cw_ + gap), top + r * (chh + gap)
-        iw, ih = sprite_size(icon, 5)
-        d_in, d_hop = 0.15 + k * 0.08, 1.2 + k * 1.2
-        b.append(
-            f'<g class="in" style="animation-delay:{d_in:.2f}s">'
-            f'<rect class="edge" x="{x}" y="{y}" width="{cw_}" height="{chh}" rx="20" fill="{C["surface"]}" stroke="{C["border"]}" stroke-width="1.5" style="animation-delay:{d_hop:.1f}s"/>'
-            f'<rect x="{x + 18}" y="{y + 18}" width="80" height="80" rx="16" fill="{C["blue50"]}"/>'
-            f'<g class="hop" style="animation-delay:{d_hop:.1f}s">{sprite(icon, 5, x + 58 - iw / 2, y + 58 - ih / 2)}</g>'
-            f'<text class="ct" x="{x + 118}" y="{y + 52}">{T(title)}</text>'
-            f'<text class="cs" x="{x + 118}" y="{y + 78}">{T(line)}</text></g>')
-    write("what.svg", svg(W, H, f"{DO_TITLE}: " + "; ".join(f"{t}, {l}" for _, t, l in DO), "\n".join(b), css))
 
 
 # ---------------------------------------------------------------- FOOTER
 def footer():
     W, H = 1200, 128
-    cx = W / 2 + 24  # centres the coffee + love = ∞ row over the caption
-    inf = lemniscate(cx + 70, 46, 36, 1.6, 80)
+    cx = W / 2 + 20  # centres the coffee + love = logo row over the caption
     css = f"""
 .op{{font-weight:800;font-size:22px;fill:{C['muted']}}}
 .t{{font-size:16px;fill:{C['text2']}}}
@@ -538,18 +461,22 @@ def footer():
 @keyframes beat{{0%,40%,100%{{transform:scale(1)}}20%{{transform:scale(1.25)}}}}
 .steam{{animation:steam 2.4s ease-out infinite both}}
 @keyframes steam{{0%{{transform:translateY(0);opacity:0}}25%{{opacity:.9}}100%{{transform:translateY(-14px);opacity:0}}}}
-.flow{{fill:none;stroke:url(#lgf);stroke-width:4;stroke-linecap:round;stroke-dasharray:40 26;animation:flow 4s linear infinite}}
-@keyframes flow{{to{{stroke-dashoffset:-660}}}}
+.lg{{animation:float 3s ease-in-out infinite}}
+@keyframes float{{50%{{transform:translateY(-4px)}}}}
+.shine{{animation:shine 4s {EASE} 1s infinite both}}
+@keyframes shine{{0%{{transform:translateX(-40px)}}35%,100%{{transform:translateX(80px)}}}}
 """
     b = [card(W, H, 24),
-         f'<defs><linearGradient id="lgf" x1="0" x2="1"><stop offset="0" stop-color="{C["cyan"]}"/><stop offset="1" stop-color="{C["primary"]}"/></linearGradient></defs>',
+         f'<defs><clipPath id="lc">{logo()}</clipPath><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+         f'<stop offset=".5" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>',
          sprite("mug", 4, cx - 152, 30),
          f'<g class="steam" shape-rendering="crispEdges"><rect x="{cx - 146}" y="20" width="4" height="4" fill="#c4c4d0"/>'
          f'<rect x="{cx - 138}" y="16" width="4" height="4" fill="#c4c4d0"/><rect x="{cx - 130}" y="20" width="4" height="4" fill="#c4c4d0"/></g>',
          f'<text class="op" x="{cx - 98}" y="54" text-anchor="middle">+</text>',
          f'<g class="beat">{sprite("heart_s", 4, cx - 78, 34)}</g>',
          f'<text class="op" x="{cx - 20}" y="54" text-anchor="middle">=</text>',
-         f'<path d="{inf}" fill="none" stroke="{C["blue50"]}" stroke-width="10"/><path class="flow" pathLength="660" d="{inf}"/>',
+         f'<g class="lg"><g transform="translate({cx + 4} 20) scale(.96)">{logo()}'
+         f'<g clip-path="url(#lc)"><rect class="shine" x="-20" y="-10" width="26" height="80" fill="url(#sw)" transform="skewX(-20)"/></g></g></g>',
          f'<text class="t" x="{W / 2}" y="104" text-anchor="middle">{T(FOOTER)} · <tspan class="s">{T(SITE)}</tspan></text>']
     write("footer.svg", svg(W, H, f"{FOOTER} · {SITE}", "\n".join(b), css))
 
@@ -561,5 +488,4 @@ if __name__ == "__main__":
             os.remove(os.path.join(OUT, name))
     hero()
     desk()
-    what()
     footer()
