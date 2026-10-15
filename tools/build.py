@@ -28,7 +28,6 @@ NAME_FIRST, NAME_LAST = "Alireza", "Talezadeh"
 ROLE = "Founder & CEO"
 SITE = "account4all.ir"
 TAG_EN = ("Building account4all.ir", " — a story that never ends!")
-TAG_FA = ("در حال ساختن اکانت فور آل؛ ", "داستانی که تمومی نداره!")
 
 DESK_EYEBROW = "LIVE FROM THE FOUNDER'S DESK"
 DESK_TITLE = "A day at account4all.ir"
@@ -38,7 +37,7 @@ FEED = [  # (icon, tint, title, status)
     ("team", "amber", "Building the team", "growing"),
     ("mug12", "red", "Drinking coffee", "always"),
 ]
-FOOTER = "made with coffee and love"
+FOOTER = "Made with coffee and love"
 
 # ---------------------------------------------------------------- TOKENS (Account4All kit v1.0.0)
 C = {
@@ -286,16 +285,13 @@ def hero():
 @keyframes up{{from{{transform:translateY(14px);opacity:0}}}}
 @keyframes fade{{from{{opacity:0}}}}
 .tag{{font-size:21px}}
-.en,.fa{{animation:swap 12s {EXPO} infinite both}}
-.en{{animation-delay:1.1s}} .fa{{animation-delay:-4.9s}}
-@keyframes swap{{0%{{transform:translateY(34px);opacity:0}}6%,44%{{transform:none;opacity:1}}50%,100%{{transform:translateY(-34px);opacity:0}}}}
+.en{{animation:rise .9s {EXPO} 1s both}}
 .win{{animation:win 1s {EXPO} .5s both}}
 @keyframes win{{from{{transform:translateY(30px);opacity:0}}}}
 .scroll{{animation:scroll 18s {EASE} 1.5s infinite}}
 @keyframes scroll{{0%,12%{{transform:none}}40%,50%{{transform:translateY(-{travel * .45:.0f}px)}}78%,88%{{transform:translateY(-{travel:.0f}px)}}100%{{transform:none}}}}
 .url{{font-size:13px;fill:{C['text2']}}}
 .lock{{fill:{C['green']}}}
-@media (prefers-reduced-motion: reduce){{.fa{{opacity:0}}}}
 {SPARKLE_CSS}
 """
     body = f"""{card(W, H)}
@@ -324,7 +320,6 @@ def hero():
 <g clip-path="url(#nm)"><text class="name" x="62" y="236"><tspan fill="{C['text']}">{T(NAME_FIRST)} </tspan><tspan fill="{C['primary']}">{T(NAME_LAST)}</tspan></text></g>
 <g clip-path="url(#tg)">
 <text class="tag en" x="64" y="301"><tspan fill="{C['text']}" font-weight="800">{T(TAG_EN[0])}</tspan><tspan fill="{C['text2']}">{T(TAG_EN[1])}</tspan></text>
-<text class="tag fa" x="64" y="301" direction="rtl" text-anchor="end"><tspan fill="{C['text']}">{T(TAG_FA[0])}</tspan><tspan fill="{C['primary']}" font-weight="800">{T(TAG_FA[1])}</tspan></text>
 </g>
 <g class="win">
 <rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="16" fill="{C['surface']}" stroke="{C['border']}" stroke-width="1.5" filter="url(#sh)"/>

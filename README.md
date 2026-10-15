@@ -12,4 +12,4 @@
   <a href="https://account4all.ir"><img src="https://img.shields.io/badge/Visit-account4all.ir-1f1eff?style=for-the-badge&labelColor=23242b" alt="Visit account4all.ir" /></a>
 </p>
 
-<img src="assets/footer.svg" width="100%" alt="Coffee plus love equals account4all. Made with coffee and love, account4all.ir" />
+<img src="assets/footer.svg" width="100%" alt="Coffee plus love equals account4all.ir. Made with coffee and love." />
